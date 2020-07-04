@@ -27,11 +27,11 @@ const Food: React.FC<IProps> = ({
   const [isAvailable, setIsAvailable] = useState(food.available);
 
   async function toggleAvailable(): Promise<void> {
-    // TODO UPDATE STATUS (available)
+    setIsAvailable(!isAvailable);
   }
 
   function setEditingFood(): void {
-    // TODO - SET THE ID OF THE CURRENT ITEM TO THE EDITING FOOD AND OPEN MODAL
+    handleEditFood(food);
   }
 
   return (
@@ -39,6 +39,7 @@ const Food: React.FC<IProps> = ({
       <header>
         <img src={food.image} alt={food.name} />
       </header>
+
       <section className="body">
         <h2>{food.name}</h2>
         <p>{food.description}</p>
@@ -46,6 +47,7 @@ const Food: React.FC<IProps> = ({
           R$ <b>{food.price}</b>
         </p>
       </section>
+
       <section className="footer">
         <div className="icon-container">
           <button
